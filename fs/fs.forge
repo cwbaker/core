@@ -1,0 +1,16 @@
+
+buildfile 'fs_lua/fs_lua.forge';
+buildfile 'fs_test/fs_test.forge';
+
+for _, toolset in toolsets('cc.*') do
+    toolset:StaticLibrary '${lib}/fs_${platform}_${architecture}' {
+        toolset:Cxx '${obj}/%1' {
+            'BasicPath.cpp';
+            'BasicPathTraits.cpp';
+            'DirectoryStack.cpp';
+            'FileSystem.cpp';
+            'fs.cpp';
+            'SearchPath.cpp';
+        };
+    };
+end

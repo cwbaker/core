@@ -1,0 +1,10 @@
+
+for _, toolset in toolsets('cc.*') do
+	toolset:all {
+	    toolset:StaticLibrary '${lib}/assert_${platform}_${architecture}' {
+	        toolset:Cc '${obj}/%1' {
+	            "assert.cpp"
+	        };
+	    };
+	};
+end

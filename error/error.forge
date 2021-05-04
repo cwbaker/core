@@ -1,0 +1,19 @@
+
+buildfile 'error_test/error_test.forge';
+
+for _, toolset in toolsets('cc.*') do 
+    toolset:StaticLibrary '${lib}/error_${platform}_${architecture}' {
+        toolset:Cxx '${obj}/%1' {
+            defines = {
+                -- Define POSIX_C_SOURCE=200112L to get the correct behavior from
+                -- `strerror_r()` in `Error::format()` for Linux.  See 
+                -- `man strerror_r` for more details.
+                'POSIX_C_SOURCE=200112L'
+            };
+            'Error.cpp';
+            'ErrorPolicy.cpp';
+            'NullErrorPolicy.cpp';
+            'functions.cpp';
+        };
+    };
+end

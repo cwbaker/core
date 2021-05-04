@@ -1,0 +1,16 @@
+
+for _, cc in toolsets( '^cc_.*' ) do
+    cc:StaticLibrary '${lib}/riff_test_${platform}_${architecture}' {
+        whole_archive = true;
+
+        '${lib}/riff_${platform}_${architecture}';
+        '${lib}/assert_${platform}_${architecture}';
+        '${lib}/error_${platform}_${architecture}';
+        '${lib}/UnitTest++_${platform}_${architecture}';
+
+        cc:Cxx '${obj}/%1' {
+            'TestRiffWriter.cpp';
+            'TestRptr.cpp';
+        };
+    };
+end

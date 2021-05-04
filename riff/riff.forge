@@ -1,0 +1,19 @@
+
+buildfile "riffc/riffc.forge";
+buildfile "riff_lua/riff_lua.forge";
+buildfile "riff_test/riff_test.forge";
+
+for _, toolset in toolsets('cc.*') do
+    toolset:StaticLibrary '${lib}/riff_${platform}_${architecture}' {
+        toolset:Cxx '${obj}/%1' {
+            "FileBuilder.cpp",
+            "FileCache.cpp",
+            "Riff.cpp",
+            "RiffIterator.cpp",
+            "RiffLoader.cpp",
+            "RiffOffset.cpp",
+            "RiffPatcher.cpp",
+            "RiffWriter.cpp"
+        };
+    };
+end

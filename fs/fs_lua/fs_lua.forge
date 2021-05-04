@@ -1,0 +1,8 @@
+
+for _, toolset in toolsets('cc.*') do
+    toolset:StaticLibrary '${lib}/fs_lua_${platform}_${architecture}' {
+        toolset:Cxx '${obj}/%1' {
+            'LuaFs.cpp';
+        };
+    };
+end

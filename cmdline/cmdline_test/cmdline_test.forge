@@ -1,0 +1,10 @@
+
+for _, cc in toolsets( '^cc_linux.*', '^cc_macos_.*', '^cc_windows_.*' ) do
+    cc:StaticLibrary '${lib}/cmdline_test_${platform}_${architecture}' {
+        whole_archive = true;
+        cc:Cxx '${obj}/%1' {
+            'TestParser.cpp';
+            'TestSplitter.cpp';
+        };
+    };
+end
