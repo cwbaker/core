@@ -1,0 +1,6 @@
+
+buildfile 'assert/assert.forge';
+buildfile 'cmdline/cmdline.forge';
+buildfile 'error/error.forge';
+buildfile 'fs/fs.forge';
+buildfile 'riff/riff.forge';
