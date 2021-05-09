@@ -6,15 +6,14 @@
 #include "Riff.hpp"
 #include "RiffIterator.hpp"
 #include "RiffHeader.hpp"
-#include <sweet/io/IoPolicy.hpp>
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <algorithm>
 #include <stdlib.h>
 #include <stddef.h>
+#include <stdio.h>
 #include <string.h>
 
-using namespace sweet;
-using namespace sweet::riff;
+using namespace riff;
 
 Riff::Riff()
 : data_( nullptr )
@@ -22,37 +21,35 @@ Riff::Riff()
 {
 }
 
-Riff::Riff( const char* filename, io::IoPolicy* io_policy )
-: data_( NULL ),
+Riff::Riff( const char* filename )
+: data_( nullptr ),
   size_( 0 )
 {
     SWEET_ASSERT( filename );
-    SWEET_ASSERT( io_policy );
-
-    void* file = io_policy->fopen( filename, "rb" );
+    FILE* file = fopen( filename, "rb" );
     if ( file )
     {
         RiffHeader header;
         memset( &header, 0, sizeof(header) );
-        io_policy->fread( &header, sizeof(header), 1, file );
+        fread( &header, sizeof(header), 1, file );
         
         if ( strcmp(header.tag, "RESOURCE") == 0 )
         {
             data_ = reinterpret_cast<unsigned char*>( malloc(header.size) );
             if ( data_ )
             {
-                io_policy->fread( data_, sizeof(unsigned char), header.size, file );
+                fread( data_, sizeof(unsigned char), header.size, file );
                 size_ = header.size;
             }
         }
         
-        io_policy->fclose( file );
-        file = NULL;        
+        fclose( file );
+        file = nullptr;        
     }
 }
 
 Riff::Riff( unsigned char* data, size_t size )
-: data_( NULL ),
+: data_( nullptr ),
   size_( 0 )
 {
     data_ = reinterpret_cast<unsigned char*>( malloc(size) );
@@ -65,7 +62,7 @@ Riff::~Riff()
     if ( data_ )
     {
         free( data_ );
-        data_ = NULL;
+        data_ = nullptr;
     }
 }
 

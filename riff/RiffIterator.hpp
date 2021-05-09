@@ -1,9 +1,6 @@
-#ifndef SWEET_RIFF_RIFFITERATOR_HPP_INCLUDED
-#define SWEET_RIFF_RIFFITERATOR_HPP_INCLUDED
+#ifndef RIFF_RIFFITERATOR_HPP_INCLUDED
+#define RIFF_RIFFITERATOR_HPP_INCLUDED
 
-namespace sweet
-{
-    
 namespace riff
 {
 
@@ -27,8 +24,6 @@ public:
     RiffIterator operator++( int );
 };
     
-}
-
 }
 
 #endif

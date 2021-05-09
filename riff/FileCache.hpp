@@ -1,12 +1,9 @@
-#ifndef SWEET_RIFF_FILECACHE_HPP_INCLUDED
-#define SWEET_RIFF_FILECACHE_HPP_INCLUDED
+#ifndef RIFF_FILECACHE_HPP_INCLUDED
+#define RIFF_FILECACHE_HPP_INCLUDED
 
-#include <sweet/riff/RiffPatcher.hpp>
+#include <riff/RiffPatcher.hpp>
 #include <map>
 #include <string>
-
-namespace sweet
-{
 
 namespace riff
 {
@@ -27,8 +24,6 @@ public:
 private:
     void patch_file( const void* data );
 };
-
-}
 
 }
 

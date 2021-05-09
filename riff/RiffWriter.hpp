@@ -1,13 +1,10 @@
-#ifndef SWEET_RIFF_RIFFWRITER_HPP_INCLUDED
-#define SWEET_RIFF_RIFFWRITER_HPP_INCLUDED
+#ifndef RIFF_RIFFWRITER_HPP_INCLUDED
+#define RIFF_RIFFWRITER_HPP_INCLUDED
 
 #include "RiffOffset.hpp"
 #include <vector>
 #include <string>
 #include <stddef.h>
-
-namespace sweet
-{
 
 namespace error
 {
@@ -66,8 +63,6 @@ public:
     size_t end_block();
     void write_to_file( const std::string& filename );
 };
-
-}
 
 }
 

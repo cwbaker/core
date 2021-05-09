@@ -1,39 +1,41 @@
 
-for _, toolset in toolsets( 'cc_macos_.*', 'cc_windows_.*', '^cc_linux.*' ) do
-    local libraries = switch {
-        toolset.settings.platform;
-        linux = {
-            'dl';
-        };
-        windows = {
-            'ws2_32.lib';
-        };
-    };
-
-
-    toolset:all {
-        toolset:Executable '${bin}/riffc' {
-            '${lib}/assert_${platform}_${architecture}';
-            '${lib}/cmdline_${platform}_${architecture}';
-            '${lib}/error_${platform}_${architecture}';
-            '${lib}/fs_lua_${platform}_${architecture}';
-            '${lib}/fs_${platform}_${architecture}';
-            '${lib}/io_${platform}_${architecture}';
-            '${lib}/riff_${platform}_${architecture}';
-            '${lib}/lua_${platform}_${architecture}';
-            '${lib}/luaxx_${platform}_${architecture}';
-            '${lib}/liblua_${platform}_${architecture}';
-            '${lib}/socket_${platform}_${architecture}';
-
-            libraries = libraries;
-
-            toolset:Cxx '${obj}/%1' {
-                defines = {
-                    ('BUILD_VERSION="\\"%s\\""'):format( version );
-                };
-                'Application.cpp',
-                'riffc.cpp'
+for _, cc in toolsets( 'cc_macos_.*', 'cc_windows_.*', '^cc_linux.*' ) do
+    if cc.settings.lua_enabled then
+        local libraries = switch {
+            cc.settings.platform;
+            linux = {
+                'dl';
+            };
+            windows = {
+                'ws2_32.lib';
             };
         };
-    };
+
+
+        cc:all {
+            cc:Executable '${bin}/riffc' {
+                '${lib}/assert_${platform}_${architecture}';
+                '${lib}/cmdline_${platform}_${architecture}';
+                '${lib}/error_${platform}_${architecture}';
+                '${lib}/fs_lua_${platform}_${architecture}';
+                '${lib}/fs_${platform}_${architecture}';
+                '${lib}/io_${platform}_${architecture}';
+                '${lib}/riff_${platform}_${architecture}';
+                '${lib}/lua_${platform}_${architecture}';
+                '${lib}/luaxx_${platform}_${architecture}';
+                '${lib}/liblua_${platform}_${architecture}';
+                '${lib}/socket_${platform}_${architecture}';
+
+                libraries = libraries;
+
+                cc:Cxx '${obj}/%1' {
+                    defines = {
+                        ('BUILD_VERSION="\\"%s\\""'):format( version );
+                    };
+                    'Application.cpp',
+                    'riffc.cpp'
+                };
+            };
+        };
+    end
 end

@@ -5,14 +5,14 @@
 
 #include "RiffIterator.hpp"
 #include "RiffHeader.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <string.h>
 #include <stddef.h>
 
-using namespace sweet::riff;
+using namespace riff;
 
 RiffIterator::RiffIterator()
-: position_( NULL )
+: position_( nullptr )
 {
 }
 
@@ -46,13 +46,13 @@ const char* RiffIterator::tag() const
 {
     SWEET_ASSERT( position_ );
     const RiffHeader* header = reinterpret_cast<RiffHeader*>( position_ );
-    return header ? header->tag : NULL;
+    return header ? header->tag : nullptr;
 }
 
 const unsigned char* RiffIterator::data() const
 {
     SWEET_ASSERT( position_ );
-    return position_ ? position_ + sizeof(RiffHeader) : NULL;
+    return position_ ? position_ + sizeof(RiffHeader) : nullptr;
 }
 
 unsigned int RiffIterator::size() const

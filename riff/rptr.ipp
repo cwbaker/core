@@ -1,13 +1,10 @@
-#ifndef SWEET_RIFF_RPTR_IPP_INCLUDED
-#define SWEET_RIFF_RPTR_IPP_INCLUDED
+#ifndef RIFF_RPTR_IPP_INCLUDED
+#define RIFF_RPTR_IPP_INCLUDED
 
 #include "rptr.hpp"
 #include <stdint.h>
 #include <stddef.h>
-#include <sweet/assert/assert.hpp>
-
-namespace sweet
-{
+#include <assert/assert.hpp>
 
 namespace riff
 {
@@ -96,7 +93,7 @@ bool rptr<Type>::operator<( const rptr& rptr ) const
 template <class Type>
 rptr<Type>::operator unspecified_bool_type() const
 {
-    return offset_ != 0 ? &rptr<Type>::offset_ : NULL;
+    return offset_ != 0 ? &rptr<Type>::offset_ : nullptr;
 }
 
 template <class Type>
@@ -111,8 +108,6 @@ template <class Type>
 void rptr<Type>::reset( const void* address )
 {
     offset_ = address ? int((intptr_t) address - (intptr_t) this) : 0;
-}
-
 }
 
 }

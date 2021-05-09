@@ -1,8 +1,7 @@
 
 #include "RiffPatcher.hpp"
-#include <sweet/assert/assert.hpp>
 
-using namespace sweet::riff;
+using namespace riff;
 
 RiffPatcher::~RiffPatcher()
 {

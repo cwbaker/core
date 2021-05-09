@@ -1,8 +1,5 @@
-#ifndef SWEET_RIFF_RARRAY_HPP_INCLUDED
-#define SWEET_RIFF_RARRAY_HPP_INCLUDED
-
-namespace sweet
-{
+#ifndef RIFF_RARRAY_HPP_INCLUDED
+#define RIFF_RARRAY_HPP_INCLUDED
 
 namespace riff
 {
@@ -38,10 +35,6 @@ public:
     Type* begin();
     Type* end();
 };
-
-}
-
-using riff::rarray;
 
 }
 

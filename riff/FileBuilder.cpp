@@ -6,28 +6,25 @@
 #define _CRT_SECURE_NO_DEPRECATE
 
 #include "FileBuilder.hpp"
-#include <sweet/riff/RiffWriter.hpp>
-#include <sweet/riff/Riff.hpp>
-#include <sweet/riff/File.hpp>
-#include <sweet/error/ErrorPolicy.hpp>
-#include <sweet/assert/assert.hpp>
+#include <riff/RiffWriter.hpp>
+#include <riff/Riff.hpp>
+#include <riff/File.hpp>
+#include <error/ErrorPolicy.hpp>
+#include <assert/assert.hpp>
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
-using namespace sweet;
-using namespace sweet::riff;
+using namespace riff;
 
 #if defined BUILD_OS_WINDOWS
 #define _stat32 stat32
 #endif
 
-FileBuilder::FileBuilder( RiffWriter& writer, io::IoPolicy* io_policy, error::ErrorPolicy* error_policy )
-: writer_( writer ),
-  io_policy_( io_policy ),
-  error_policy_( error_policy )
+FileBuilder::FileBuilder( RiffWriter& writer, error::ErrorPolicy* error_policy )
+: writer_( writer )
+, error_policy_( error_policy )
 {
-    SWEET_ASSERT( io_policy_ );
     SWEET_ASSERT( error_policy_ );
 }
 
@@ -44,7 +41,7 @@ int FileBuilder::file( const std::string& identifier, const std::string& tag, co
     int errors = error_policy_->pop_errors();
     if ( errors == 0 )
     {
-        Riff riff( filename.c_str(), io_policy_ );
+        Riff riff( filename.c_str() );
         if ( riff.data() && riff.size() > 0 )
         {
             for ( RiffIterator i = riff.begin(); i != riff.end(); ++i )

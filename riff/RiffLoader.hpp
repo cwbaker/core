@@ -6,16 +6,6 @@
 #include <functional>
 #include <stddef.h>
 
-namespace sweet
-{
-
-namespace io
-{
-
-class IoPolicy;
-
-}
-
 namespace riff
 {
 
@@ -25,19 +15,16 @@ class Riff;
 
 class RiffLoader
 {
-    io::IoPolicy* io_policy_;
     std::map<std::string, std::function<void (const void*)>> patchers_;
     std::map<std::string, const Riff*> riffs_;
 
 public:
     RiffLoader();
-    RiffLoader( io::IoPolicy* io_policy );
     ~RiffLoader();
 
     const std::function<void (const void*)>* find_patcher( const char* tag ) const;
     const Riff* find_riff( const char* identifier ) const;
 
-    void create( io::IoPolicy* io_policy );
     void destroy();
     void swap( RiffLoader& riff_loader );
     void register_patcher( const char* tag, const std::function<void (const void*)>& patcher );   
@@ -51,8 +38,6 @@ private:
     const Riff* remove_riff( const char* filename );
     void parse_riff( const Riff* riff );
 };
-
-}
 
 }
 

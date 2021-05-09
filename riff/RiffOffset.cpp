@@ -7,9 +7,9 @@
 #include "RiffWriter.hpp"
 #include <stdint.h>
 #include <stddef.h>
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 
-using namespace sweet::riff;
+using namespace riff;
 
 RiffOffset::RiffOffset()
 : writer_( nullptr )

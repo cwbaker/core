@@ -3,42 +3,40 @@
 // Copyright (c) Charles Baker. All rights reserved.
 
 #include "Application.hpp"
-#include <sweet/riff/FileBuilder.hpp>
-#include <sweet/riff/RiffWriter.hpp>
-#include <sweet/lua/Lua.hpp>
-#include <sweet/lua/LuaObject.hpp>
-#include <sweet/lua/LuaDeleter.hpp>
-#include <sweet/cmdline/Parser.hpp>
-#include <sweet/fs/fs_lua/LuaFs.hpp>
-#include <sweet/fs/FileSystem.hpp>
-#include <sweet/fs/DirectoryStack.hpp>
-
-#include <sweet/assert/assert.hpp>
+#include <riff/FileBuilder.hpp>
+#include <riff/RiffWriter.hpp>
+#include <lua/Lua.hpp>
+#include <lua/LuaObject.hpp>
+#include <lua/LuaDeleter.hpp>
+#include <cmdline/Parser.hpp>
+#include <fs/fs_lua/LuaFs.hpp>
+#include <fs/FileSystem.hpp>
+#include <fs/DirectoryStack.hpp>
+#include <assert/assert.hpp>
 #include <memory>
 #include <stdlib.h>
 
 using std::string;
 using std::vector;
 using std::unique_ptr;
-using namespace sweet;
 using namespace sweet::lua;
-using namespace sweet::riff;
+using namespace riff;
 
 SWEET_LUA_TYPE_CONVERSION( FileBuilder, LuaByReference, "riff.FileBuilder" );
 SWEET_LUA_TYPE_CONVERSION( RiffWriter, LuaByReference, "riff.RiffWriter" );
 
 Application::Application( int argc, char **argv )
-: result_( EXIT_SUCCESS ),
-  error_policy_(),
-  io_policy_(),
-  file_system_( nullptr ),
-  lua_( error_policy_ ),
-  lua_fs_( nullptr ),
-  riff_( nullptr ),
-  file_builder_metatable_( lua_ ),
-  file_builder_prototype_( lua_ ),
-  riff_writer_metatable_( lua_ ),
-  riff_writer_prototype_( lua_ )
+: result_( EXIT_SUCCESS )
+, error_policy_()
+, io_policy_()
+, file_system_( nullptr )
+, lua_( error_policy_ )
+, lua_fs_( nullptr )
+, riff_( nullptr )
+, file_builder_metatable_( lua_ )
+, file_builder_prototype_( lua_ )
+, riff_writer_metatable_( lua_ )
+, riff_writer_prototype_( lua_ )
 {
     directory_stack_ = new fs::DirectoryStack;
     file_system_ = new fs::FileSystem;

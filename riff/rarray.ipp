@@ -1,12 +1,9 @@
-#ifndef SWEET_RIFF_RARRAY_IPP_INCLUDED
-#define SWEET_RIFF_RARRAY_IPP_INCLUDED
+#ifndef RIFF_RARRAY_IPP_INCLUDED
+#define RIFF_RARRAY_IPP_INCLUDED
 
 #include "rarray.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <stdint.h>
-
-namespace sweet
-{
 
 namespace riff
 {
@@ -134,8 +131,6 @@ Type* rarray<Type>::end()
 {
     SWEET_ASSERT( size_ > 0 && offset_ != 0 );
     return get() + size_;
-}
-
 }
 
 }

@@ -4,17 +4,17 @@
 //
 
 #include "LuaRiff.hpp"
-#include <sweet/riff/FileCache.hpp>
-#include <sweet/riff/File.hpp>
-#include <sweet/assert/assert.hpp>
+#include <riff/FileCache.hpp>
+#include <riff/File.hpp>
+#include <assert/assert.hpp>
 #include <lua.hpp>
 #include <string.h>
 
-using namespace sweet::riff;
+using namespace riff;
 
 LuaRiff::LuaRiff()
-: file_cache_( nullptr ),
-  lua_state_( nullptr )
+: file_cache_( nullptr )
+, lua_state_( nullptr )
 {
 }
 

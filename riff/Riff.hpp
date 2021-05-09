@@ -1,18 +1,8 @@
-#ifndef SWEET_RIFF_RIFF_HPP_INCLUDED
-#define SWEET_RIFF_RIFF_HPP_INCLUDED
+#ifndef RIFF_RIFF_HPP_INCLUDED
+#define RIFF_RIFF_HPP_INCLUDED
 
 #include "RiffIterator.hpp"
 #include <stddef.h>
-
-namespace sweet
-{
-
-namespace io
-{
-
-class IoPolicy;
-
-}
 
 namespace riff
 {
@@ -24,7 +14,7 @@ class Riff
 
 public:
     Riff();
-    Riff( const char* filename, io::IoPolicy* io_policy );
+    Riff( const char* filename );
     Riff( unsigned char* data, size_t size );
     ~Riff();
     unsigned char* data() const;
@@ -38,8 +28,6 @@ private:
     Riff& operator=( const Riff& riff ) = delete;
 };
     
-}
-
 }
 
 #endif

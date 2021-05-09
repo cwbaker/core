@@ -1,12 +1,11 @@
 
 #include <UnitTest++/UnitTest++.h>
-#include <sweet/riff/RiffWriter.hpp>
-#include <sweet/riff/RiffHeader.hpp>
-#include <sweet/error/NullErrorPolicy.hpp>
+#include <riff/RiffWriter.hpp>
+#include <riff/RiffHeader.hpp>
+#include <error/NullErrorPolicy.hpp>
 #include <string.h>
 
-using namespace sweet;
-using namespace sweet::riff;
+using namespace riff;
 
 SUITE( TestRiffWriter )
 {

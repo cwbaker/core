@@ -2,11 +2,11 @@
 #include "FileCache.hpp"
 #include "File.hpp"
 #include "RiffLoader.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 
 using std::map;
 using std::string;
-using namespace sweet::riff;
+using namespace riff;
 
 FileCache::FileCache()
 : files_()
@@ -17,7 +17,7 @@ const File* FileCache::file( const char* identifier ) const
 {
     SWEET_ASSERT( identifier );
     map<string, const File*>::const_iterator i = files_.find( string(identifier) );
-    return i != files_.end() ? i->second : NULL;
+    return i != files_.end() ? i->second : nullptr;
 }
 
 void FileCache::swap( FileCache& file_cache )
