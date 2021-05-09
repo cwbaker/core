@@ -1,5 +1,5 @@
-#ifndef SWEET_ERROR_ERRORPOLICY_HPP_INCLUDED
-#define SWEET_ERROR_ERRORPOLICY_HPP_INCLUDED
+#ifndef ERROR_ERRORPOLICY_HPP_INCLUDED
+#define ERROR_ERRORPOLICY_HPP_INCLUDED
 
 #include <stdarg.h>
 
@@ -9,9 +9,6 @@ namespace std
 class exception;
 
 }
-
-namespace sweet
-{
 
 namespace error
 {
@@ -41,8 +38,6 @@ private:
     virtual void report_error( const char* message );
     virtual void report_print( const char* message );
 };
-
-}
 
 }
 

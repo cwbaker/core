@@ -1,11 +1,11 @@
 //
 // ErrorPolicy.cpp
-// Copyright (c) 2001 - 2013 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #include "stdafx.hpp"
 #include "ErrorPolicy.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
@@ -14,7 +14,7 @@
 #define vsnprintf _vsnprintf
 #endif
 
-using namespace sweet::error;
+using namespace error;
 
 /**
 // Constructor.

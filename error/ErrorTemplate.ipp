@@ -1,17 +1,14 @@
 //
 // ErrorTemplate.ipp
-// Copyright (c) 2008 - 2012 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
-#ifndef SWEET_ERROR_ERRORTEMPLATE_IPP_INCLUDED
-#define SWEET_ERROR_ERRORTEMPLATE_IPP_INCLUDED
+#ifndef ERROR_ERRORTEMPLATE_IPP_INCLUDED
+#define ERROR_ERRORTEMPLATE_IPP_INCLUDED
 
 #include <stdarg.h>
 #include "ErrorTemplate.hpp"
 #include "Error.hpp"
-
-namespace sweet
-{
 
 namespace error
 {
@@ -49,8 +46,6 @@ ErrorTemplate<ERRNO, Base>::ErrorTemplate( const char* format, va_list args )
 : Base( ERRNO )
 {
     Error::append( format, args );
-}
-
 }
 
 }

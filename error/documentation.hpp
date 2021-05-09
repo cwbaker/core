@@ -1,9 +1,6 @@
 
 #error "This file is for doxygen documentation only - don't include it!"
 
-namespace sweet
-{
-
 /**
 // %Error library.
 //
@@ -38,7 +35,4 @@ namespace error
 {
 }
 
-}
-
 #endif
-

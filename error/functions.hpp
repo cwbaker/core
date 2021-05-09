@@ -1,5 +1,5 @@
-#ifndef SWEET_ERROR_FUNCTIONS_HPP_INCLUDED
-#define SWEET_ERROR_FUNCTIONS_HPP_INCLUDED
+#ifndef ERROR_FUNCTIONS_HPP_INCLUDED
+#define ERROR_FUNCTIONS_HPP_INCLUDED
 
 namespace std
 {
@@ -7,9 +7,6 @@ namespace std
 class exception;
 
 }
-
-namespace sweet
-{
 
 namespace error
 {
@@ -22,8 +19,6 @@ ErrorPolicy* get_error_policy();
 void error( const Error& error );
 void error( const std::exception& exception );
 const char* format( int error, char* buffer, unsigned int length );
-
-}
 
 }
 

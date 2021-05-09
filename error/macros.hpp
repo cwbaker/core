@@ -1,18 +1,13 @@
-//
-// error_macros.hpp
-// Copyright (c) 2001 - 2010 Charles Baker.  All rights reserved.
-//
+#ifndef ERROR_ERROR_MACROS_HPP_INCLUDED
+#define ERROR_ERROR_MACROS_HPP_INCLUDED
 
-#ifndef SWEET_ERROR_ERROR_MACROS_HPP_INCLUDED
-#define SWEET_ERROR_ERROR_MACROS_HPP_INCLUDED
-
-#include <sweet/build.hpp>
+#include <build.hpp>
 
 #ifdef SWEET_EXCEPTIONS_ENABLED
 #define SWEET_ERROR( e ) throw e;
 #else
 #include "functions.hpp"
-#define SWEET_ERROR( e ) sweet::error::error( e );
+#define SWEET_ERROR( e ) error::error( e );
 #endif
 
 #endif
