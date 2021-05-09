@@ -1,10 +1,12 @@
 
 for _, cc in toolsets( '^cc_linux_.*', '^cc_macos_.*', '^cc_windows_.*' ) do
-    cc:StaticLibrary '${lib}/fs_test_${platform}_${architecture}' {
-        whole_archive = true;
-        cc:Cxx '${obj}/%1' {
-            'TestPath.cpp';
-            'TestWidePath.cpp';
-        };
-    };
+	if cc.settings.unit_tests_enabled then
+	    cc:StaticLibrary '${lib}/fs_test_${platform}_${architecture}' {
+	        whole_archive = true;
+	        cc:Cxx '${obj}/%1' {
+	            'TestPath.cpp';
+	            'TestWidePath.cpp';
+	        };
+	    };
+	end
 end

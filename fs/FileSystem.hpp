@@ -1,10 +1,7 @@
-#ifndef SWEET_FS_FILESYSTEM_HPP_INCLUDED
-#define SWEET_FS_FILESYSTEM_HPP_INCLUDED
+#ifndef FS_FILESYSTEM_HPP_INCLUDED
+#define FS_FILESYSTEM_HPP_INCLUDED
 
 #include "BasicPath.ipp"
-
-namespace sweet
-{
 
 namespace fs
 {
@@ -47,8 +44,6 @@ public:
     void set_directory_stack( DirectoryStack* directory_stack );
     DirectoryStack* directory_stack() const;
 };
-
-}
 
 }
 

@@ -3,10 +3,10 @@
 // Copyright (c) Charles Baker.  All rights reserved.
 //
 
-#include <sweet/fs/fs.hpp>
-#include <sweet/build.hpp>
+#include <fs/fs.hpp>
+#include <build.hpp>
 
-using namespace sweet::fs;
+using namespace fs;
 
 #if defined(BUILD_OS_WINDOWS)
 const char* BasicPathTraits<char>::EMPTY = "";

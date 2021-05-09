@@ -1,11 +1,8 @@
-#ifndef SWEET_FS_DIRECTORYSTACK_HPP_INCLUDED
-#define SWEET_FS_DIRECTORYSTACK_HPP_INCLUDED
+#ifndef FS_DIRECTORYSTACK_HPP_INCLUDED
+#define FS_DIRECTORYSTACK_HPP_INCLUDED
 
 #include "BasicPath.hpp"
 #include <vector>
-
-namespace sweet
-{
 
 namespace fs
 {
@@ -25,8 +22,6 @@ public:
     void push_directory( const fs::Path& directory );
     void pop_directory();
 };
-
-}
 
 }
 

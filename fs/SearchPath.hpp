@@ -1,12 +1,9 @@
-#ifndef SWEET_FS_SEARCHPATH_HPP_INCLUDED
-#define SWEET_FS_SEARCHPATH_HPP_INCLUDED
+#ifndef FS_SEARCHPATH_HPP_INCLUDED
+#define FS_SEARCHPATH_HPP_INCLUDED
 
 #include "BasicPath.ipp"
 #include <string>
 #include <vector>
-
-namespace sweet
-{
 
 namespace fs
 {
@@ -26,8 +23,6 @@ public:
     void append_paths( const std::vector<std::string>& paths );
     void set_paths( const std::vector<std::string>& paths );
 };
-
-}
 
 }
 

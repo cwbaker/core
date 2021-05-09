@@ -1,8 +1,5 @@
-#ifndef SWEET_FS_BASICPATHTRAITS_HPP_INCLUDED
-#define SWEET_FS_BASICPATHTRAITS_HPP_INCLUDED
-
-namespace sweet
-{
+#ifndef FS_BASICPATHTRAITS_HPP_INCLUDED
+#define FS_BASICPATHTRAITS_HPP_INCLUDED
 
 namespace fs
 {
@@ -49,8 +46,6 @@ template <> struct BasicPathTraits<wchar_t>
     static const wchar_t* PARENT;
     static const wchar_t DELIMITER;    
 };
-
-}
 
 }
 

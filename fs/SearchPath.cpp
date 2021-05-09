@@ -4,13 +4,12 @@
 //
 
 #include "SearchPath.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <filesystem>
 
 using std::string;
 using std::filesystem::exists;
-using namespace sweet;
-using namespace sweet::fs;
+using namespace fs;
 using namespace std;
 
 SearchPath::SearchPath()

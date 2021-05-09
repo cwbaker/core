@@ -7,7 +7,7 @@
 
 #include "FileSystem.hpp"
 #include "BasicPath.ipp"
-#include <sweet/build.hpp>
+#include <build.hpp>
 #include <string>
 #if defined(BUILD_OS_WINDOWS)
 #define WIN32_LEAN_AND_MEAN
@@ -24,15 +24,14 @@
 #endif
 
 using std::string;
-using namespace sweet;
-using namespace sweet::fs;
+using namespace fs;
 
 FileSystem::FileSystem()
-: root_(),
-  initial_(),
-  executable_(),
-  home_(),
-  directory_stack_( NULL )
+: root_()
+, initial_()
+, executable_()
+, home_()
+, directory_stack_( nullptr )
 {
     refresh_root();
     refresh_initial();

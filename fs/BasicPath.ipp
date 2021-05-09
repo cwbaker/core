@@ -1,14 +1,11 @@
-#ifndef SWEET_FS_BASICPATH_IPP_INCLUDED
-#define SWEET_FS_BASICPATH_IPP_INCLUDED
+#ifndef FS_BASICPATH_IPP_INCLUDED
+#define FS_BASICPATH_IPP_INCLUDED
 
 #include "BasicPath.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <iterator>
 #include <cctype>
 #include <algorithm>
-
-namespace sweet
-{
 
 namespace fs
 {
@@ -681,8 +678,6 @@ bool BasicPath<String, Traits>::compare( typename String::const_iterator begin, 
         ++value;
     }    
     return begin == end;
-}
-
 }
 
 }

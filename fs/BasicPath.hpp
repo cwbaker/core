@@ -1,12 +1,9 @@
-#ifndef SWEET_FS_FS_BASICPATH_HPP_INCLUDED
-#define SWEET_FS_FS_BASICPATH_HPP_INCLUDED
+#ifndef FS_BASICPATH_HPP_INCLUDED
+#define FS_BASICPATH_HPP_INCLUDED
 
 #include "BasicPathTraits.hpp"
 #include <string>
 #include <vector>
-
-namespace sweet
-{
 
 namespace fs
 {
@@ -73,8 +70,6 @@ typedef BasicPath<std::string, BasicPathTraits<char>> Path;
 typedef BasicPath<std::wstring, BasicPathTraits<wchar_t>> WidePath;
 
 WidePath current_working_directory();
-
-}
 
 }
 

@@ -5,10 +5,9 @@
 
 #include "DirectoryStack.hpp"
 #include "BasicPath.ipp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 
-using namespace sweet;
-using namespace sweet::fs;
+using namespace fs;
 
 /**
 // Constructor.
