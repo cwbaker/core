@@ -1,10 +1,7 @@
-#ifndef SWEET_CMDLINE_OPTION_HPP_INCLUDED
-#define SWEET_CMDLINE_OPTION_HPP_INCLUDED
+#ifndef CMDLINE_OPTION_HPP_INCLUDED
+#define CMDLINE_OPTION_HPP_INCLUDED
 
 #include <string>
-
-namespace sweet
-{
 
 namespace cmdline
 {
@@ -36,16 +33,14 @@ class Option
     void* address_; ///< The address of the variable to receive the value of the option.
     OptionType type_; ///< The type of the option.
 
-    public:
-        Option( const std::string& name, const std::string& short_name, const std::string& description, void* address, OptionType type );
-        const std::string& get_name() const;
-        const std::string& get_short_name() const;
-        const std::string& get_description() const;
-        void* get_address() const;
-        OptionType get_type() const;
+public:
+    Option( const std::string& name, const std::string& short_name, const std::string& description, void* address, OptionType type );
+    const std::string& get_name() const;
+    const std::string& get_short_name() const;
+    const std::string& get_description() const;
+    void* get_address() const;
+    OptionType get_type() const;
 };
-
-}
 
 }
 

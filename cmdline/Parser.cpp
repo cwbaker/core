@@ -5,13 +5,13 @@
 
 #include "Parser.hpp"
 #include "Error.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <stdio.h>
 #include <stdlib.h>
 
 using std::string;
 using std::vector;
-using namespace sweet::cmdline;
+using namespace cmdline;
 
 /**
 // Constructor.

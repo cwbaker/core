@@ -1,11 +1,8 @@
-#ifndef SWEET_CMDLINE_SPLITTER_HPP_INCLUDED
-#define SWEET_CMDLINE_SPLITTER_HPP_INCLUDED
+#ifndef CMDLINE_SPLITTER_HPP_INCLUDED
+#define CMDLINE_SPLITTER_HPP_INCLUDED
 
 #include <string>
 #include <vector>
-
-namespace sweet
-{
 
 namespace cmdline
 {
@@ -23,8 +20,6 @@ public:
     Splitter( const char* command_line );
     const std::vector<char*>& arguments();
 };
-
-}
 
 }
 
