@@ -1,7 +1,7 @@
 #ifndef SWEET_ASSERT_ASSERT_HPP_INCLUDED
 #define SWEET_ASSERT_ASSERT_HPP_INCLUDED
 
-#include <sweet/build.hpp>
+#include <build.hpp>
 
 /**
  Assertion library.
