@@ -1,8 +1,5 @@
-#ifndef SWEET_RIFF_RIFFHEADER_HPP_INCLUDED
-#define SWEET_RIFF_RIFFHEADER_HPP_INCLUDED
-
-namespace sweet
-{
+#ifndef RIFF_RIFFHEADER_HPP_INCLUDED
+#define RIFF_RIFFHEADER_HPP_INCLUDED
 
 namespace riff
 {
@@ -13,8 +10,6 @@ public:
     char tag [12];
     unsigned int size;
 };
-
-}
 
 }
 

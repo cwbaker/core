@@ -1,10 +1,10 @@
 
 #include <UnitTest++/UnitTest++.h>
-#include <sweet/cmdline/Splitter.hpp>
-#include <sweet/assert/assert.hpp>
+#include <cmdline/Splitter.hpp>
+#include <assert/assert.hpp>
 #include <string.h>
 
-using namespace sweet::cmdline;
+using namespace cmdline;
 
 SUITE( TestSplitter )
 {

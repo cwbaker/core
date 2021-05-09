@@ -1,13 +1,10 @@
-#ifndef SWEET_RIFF_LUARIFF_HPP_INCLUDED
-#define SWEET_RIFF_LUARIFF_HPP_INCLUDED
+#ifndef RIFF_LUARIFF_HPP_INCLUDED
+#define RIFF_LUARIFF_HPP_INCLUDED
 
 #include <stdint.h>
 
 struct lua_State;
 
-namespace sweet
-{
-    
 namespace riff
 {
 
@@ -35,7 +32,5 @@ private:
 };
     
 } 
-
-}
 
 #endif

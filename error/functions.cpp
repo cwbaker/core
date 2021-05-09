@@ -7,16 +7,13 @@
 #include "Error.hpp"
 #include "ErrorPolicy.hpp"
 #include "functions.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <exception>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-using namespace sweet::error;
-
-namespace sweet
-{
+using namespace error;
 
 namespace error
 {
@@ -63,7 +60,7 @@ ErrorPolicy* get_error_policy()
 */
 void error( const Error& error )
 {
-    ErrorPolicy* error_policy = sweet::error::get_error_policy();
+    ErrorPolicy* error_policy = error::get_error_policy();
     if ( error_policy )
     {
         error_policy->error( true, error.what() );
@@ -88,7 +85,7 @@ void error( const Error& error )
 */
 void error( const std::exception& exception )
 {
-    ErrorPolicy* error_policy = sweet::error::get_error_policy();
+    ErrorPolicy* error_policy = error::get_error_policy();
     if ( error_policy )
     {
         error_policy->error( true, exception.what() );
@@ -134,8 +131,6 @@ const char* format( int error, char* buffer, unsigned int length )
     (void) length;
 #endif
     return buffer;
-}
-
 }
 
 }

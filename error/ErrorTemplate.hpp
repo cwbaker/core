@@ -1,10 +1,7 @@
-#ifndef SWEET_ERROR_ERRORTEMPLATE_HPP_INCLUDED
-#define SWEET_ERROR_ERRORTEMPLATE_HPP_INCLUDED
+#ifndef ERROR_ERRORTEMPLATE_HPP_INCLUDED
+#define ERROR_ERRORTEMPLATE_HPP_INCLUDED
 
 #include <stdarg.h>
-
-namespace sweet
-{
 
 namespace error
 {
@@ -19,8 +16,6 @@ class ErrorTemplate : public Base
         ErrorTemplate( const char* format, ... );
         ErrorTemplate( const char* format, va_list args );
 };
-
-}
 
 }
 

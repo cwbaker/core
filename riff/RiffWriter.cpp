@@ -1,10 +1,14 @@
+//
+// RiffWriter.cpp
+// Copyright (c) Charles Baker.  All rights reserved.
+//
 
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "RiffWriter.hpp"
 #include "RiffHeader.hpp"
-#include <sweet/error/ErrorPolicy.hpp>
-#include <sweet/assert/assert.hpp>
+#include <error/ErrorPolicy.hpp>
+#include <assert/assert.hpp>
 #include <algorithm>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,13 +16,13 @@
 
 using std::max;
 using std::swap;
-using namespace sweet::riff;
+using namespace riff;
 
 static const size_t INVALID_OFFSET = ~0;
 
 RiffWriter::Block::Block( RiffHeader* hheader, size_t ddata )
-: header( hheader ),
-  data( ddata )
+: header( hheader )
+, data( ddata )
 {
 }
 

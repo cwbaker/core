@@ -1,11 +1,8 @@
-#ifndef SWEET_CMDLINE_ERROR_HPP_INCLUDED
-#define SWEET_CMDLINE_ERROR_HPP_INCLUDED
+#ifndef CMDLINE_ERROR_HPP_INCLUDED
+#define CMDLINE_ERROR_HPP_INCLUDED
 
-#include <sweet/error/Error.hpp>
-#include <sweet/error/ErrorTemplate.hpp>
-
-namespace sweet
-{
+#include <error/Error.hpp>
+#include <error/ErrorTemplate.hpp>
 
 namespace cmdline
 {
@@ -46,8 +43,6 @@ typedef error::ErrorTemplate<CMDLINE_ERROR_INVALID_OPTION, Error> InvalidOptionE
 // @relates Error
 */
 typedef error::ErrorTemplate<CMDLINE_ERROR_INVALID_ARGUMENT, Error> InvalidArgumentError;
-
-}
 
 }
 

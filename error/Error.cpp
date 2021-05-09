@@ -5,8 +5,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#include <sweet/error/Error.hpp>
-#include <sweet/assert/assert.hpp>
+#include <error/Error.hpp>
+#include <assert/assert.hpp>
 #include <memory.h>
 #include <string.h>
 #include <stdio.h>
@@ -15,7 +15,7 @@
 #include <windows.h>
 #endif
 
-using namespace sweet::error;
+using namespace error;
 
 /**
 // Constructor.

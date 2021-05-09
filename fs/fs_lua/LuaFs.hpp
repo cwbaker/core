@@ -1,13 +1,10 @@
-#ifndef SWEET_FSYS_LUAFSYS_HPP_INCLUDED
-#define SWEET_FSYS_LUAFSYS_HPP_INCLUDED
+#ifndef FS_LUAFS_HPP_INCLUDED
+#define FS_LUAFS_HPP_INCLUDED
 
-#include <sweet/fs/BasicPath.hpp>
+#include <fs/BasicPath.hpp>
 
 struct lua_State;
 
-namespace sweet
-{
-    
 namespace fs
 {
 
@@ -36,8 +33,6 @@ private:
     static int executable( lua_State* lua_state );
     static int home( lua_State* lua_state );
 }; 
-
-}
 
 }
 

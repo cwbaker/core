@@ -1,12 +1,13 @@
+//
+// fs.cpp
+// Copyright (c) Charles Baker.  All rights reserved.
+//
 
 #include "fs.hpp"
 #include "BasicPath.ipp"
 
 using std::string;
 
-namespace sweet
-{
-    
 namespace fs
 {
 
@@ -26,8 +27,6 @@ fs::Path absolute( const fs::Path& path, const fs::Path& base_path )
 fs::Path relative( const fs::Path& path, const fs::Path& base_path )
 {
     return base_path.relative( path );
-}
-
 }
 
 }

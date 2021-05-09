@@ -1,11 +1,11 @@
 
 #include "Splitter.hpp"
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <string.h>
 
 using std::string;
 using std::vector;
-using namespace sweet::cmdline;
+using namespace cmdline;
 
 /**
 // Constructor.

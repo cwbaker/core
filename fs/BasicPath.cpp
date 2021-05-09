@@ -4,9 +4,9 @@
 //
 
 #include "BasicPath.ipp"
-#include <sweet/fs/fs.hpp>
-#include <sweet/assert/assert.hpp>
-#include <sweet/build.hpp>
+#include <fs/fs.hpp>
+#include <assert/assert.hpp>
+#include <build.hpp>
 #include <string>
 #include <stdexcept>
 #include <locale>
@@ -18,7 +18,7 @@
 #endif
 
 using std::wstring;
-using namespace sweet::fs;
+using namespace fs;
 
 /**
 // Get the current working directory.
@@ -26,7 +26,7 @@ using namespace sweet::fs;
 // @return
 //  The current working directory.
 */
-WidePath sweet::fs::current_working_directory()
+WidePath fs::current_working_directory()
 {
 #if defined(BUILD_OS_WINDOWS)
 //

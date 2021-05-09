@@ -1,10 +1,7 @@
-#ifndef SWEET_ERROR_NULLERRORPOLICY_HPP_INCLUDED
-#define SWEET_ERROR_NULLERRORPOLICY_HPP_INCLUDED
+#ifndef ERROR_NULLERRORPOLICY_HPP_INCLUDED
+#define ERROR_NULLERRORPOLICY_HPP_INCLUDED
 
 #include "ErrorPolicy.hpp"
-
-namespace sweet
-{
 
 namespace error
 {
@@ -18,8 +15,6 @@ private:
     void report_error( const char* message ) override;
     void report_print( const char* message ) override;
 };
-
-}
 
 }
 

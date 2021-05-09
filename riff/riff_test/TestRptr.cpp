@@ -4,16 +4,16 @@
 //
 
 #include <UnitTest++/UnitTest++.h>
-#include <sweet/riff/rptr.hpp>
+#include <riff/rptr.hpp>
 
-using namespace sweet::riff;
+using namespace riff;
 
 SUITE( Rptr )
 {
     TEST( null_on_default_construction )
     {
         rptr<int> rptr;
-        CHECK( rptr.get() == NULL );
+        CHECK( rptr.get() == nullptr );
         CHECK( !rptr );
     }
     

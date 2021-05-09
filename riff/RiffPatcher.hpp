@@ -1,8 +1,5 @@
-#ifndef SWEET_RIFF_RIFFPATCHER_HPP_INCLUDED
-#define SWEET_RIFF_RIFFPATCHER_HPP_INCLUDED
-
-namespace sweet
-{
+#ifndef RIFF_RIFFPATCHER_HPP_INCLUDED
+#define RIFF_RIFFPATCHER_HPP_INCLUDED
 
 namespace riff
 {
@@ -13,8 +10,6 @@ public:
     virtual ~RiffPatcher();
     virtual void patch_riff( const void* data, unsigned int size );
 };
-
-}
 
 }
 

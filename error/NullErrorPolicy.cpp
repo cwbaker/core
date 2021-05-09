@@ -5,7 +5,7 @@
 
 #include "NullErrorPolicy.hpp"
 
-using namespace sweet::error;
+using namespace error;
 
 void NullErrorPolicy::report_error( const char* /*message*/ )
 {

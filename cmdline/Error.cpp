@@ -1,11 +1,11 @@
 //
 // Error.cpp
-// Copyright (c) 2008 - 2012 Charles Baker.  All rights reserved.
+// Copyright (c) Charles Baker.  All rights reserved.
 //
 
 #include "Error.hpp"
 
-using namespace sweet::cmdline;
+using namespace cmdline;
 
 /**
 // Constructor.
@@ -14,6 +14,6 @@ using namespace sweet::cmdline;
 //  The number that uniquely identifies this Error.
 */
 Error::Error( int error )
-: sweet::error::Error( error )
+: error::Error( error )
 {
 }

@@ -2,13 +2,10 @@
 #define APPLICATION_HPP_INCLUDED
 
 #include <string>
-#include <sweet/lua/LuaObject.hpp>
-#include <sweet/lua/Lua.hpp>
-#include <sweet/io/IoPolicy.hpp>
-#include <sweet/error/ErrorPolicy.hpp>
-
-namespace sweet
-{
+#include <lua/LuaObject.hpp>
+#include <lua/Lua.hpp>
+#include <io/IoPolicy.hpp>
+#include <error/ErrorPolicy.hpp>
 
 namespace fs
 {
@@ -53,8 +50,6 @@ private:
     static int destroy_file_builder( lua_State* lua_state );
     static int destroy_riff_writer( lua_State* lua_state );
 };
-
-}
 
 }
 

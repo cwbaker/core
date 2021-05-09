@@ -10,31 +10,19 @@
 #include "RiffWriter.hpp"
 #include "RiffHeader.hpp"
 #include "Riff.hpp"
-#include <sweet/io/IoPolicy.hpp>
-#include <sweet/assert/assert.hpp>
+#include <assert/assert.hpp>
 #include <algorithm>
 #include <stdlib.h>
 #include <string.h>
 
 using std::map;
 using std::string;
-using namespace sweet;
-using namespace sweet::riff;
+using namespace riff;
 
 RiffLoader::RiffLoader()
-: io_policy_( nullptr )
-, patchers_()
+: patchers_()
 , riffs_()
 {
-}
-
-RiffLoader::RiffLoader( io::IoPolicy* io_policy )
-: io_policy_( nullptr )
-, patchers_()
-, riffs_()
-{
-    SWEET_ASSERT( io_policy );
-    create( io_policy );
 }
 
 RiffLoader::~RiffLoader()
@@ -55,13 +43,6 @@ const Riff* RiffLoader::find_riff( const char* identifier ) const
     return i != riffs_.end() ? i->second : nullptr;
 }
 
-void RiffLoader::create( io::IoPolicy* io_policy )
-{
-    SWEET_ASSERT( io_policy );
-    destroy();
-    io_policy_ = io_policy;
-}
-
 void RiffLoader::destroy()
 {
     for ( map<string, const Riff*>::const_reverse_iterator i = riffs_.rbegin(); i != riffs_.rend(); ++i )
@@ -73,11 +54,11 @@ void RiffLoader::destroy()
 
     patchers_.clear();
     riffs_.clear();
-    io_policy_ = nullptr;
 }
 
 void RiffLoader::swap( RiffLoader& riff_loader )
 {
+    std::swap( patchers_, riff_loader.patchers_ );
     std::swap( riffs_, riff_loader.riffs_ );
 }
 
@@ -92,8 +73,7 @@ void RiffLoader::register_patcher( const char* tag, const std::function<void (co
 const Riff* RiffLoader::load_riff_from_file( const char* filename )
 {
     SWEET_ASSERT( filename );
-    SWEET_ASSERT( io_policy_ );    
-    Riff* riff = new Riff( filename, io_policy_ );
+    Riff* riff = new Riff( filename );
     add_riff( filename, riff );
     return riff;
 }

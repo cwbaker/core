@@ -1,8 +1,8 @@
 
 #include <UnitTest++/UnitTest++.h>
-#include <sweet/cmdline/Parser.hpp>
+#include <cmdline/Parser.hpp>
 
-using namespace sweet::cmdline;
+using namespace cmdline;
 
 SUITE( TestParser )
 {

@@ -1,10 +1,7 @@
-#ifndef SWEET_RIFF_FILE_HPP_INCLUDED
-#define SWEET_RIFF_FILE_HPP_INCLUDED
+#ifndef RIFF_FILE_HPP_INCLUDED
+#define RIFF_FILE_HPP_INCLUDED
 
 #include "rptr.hpp"
-
-namespace sweet
-{
 
 namespace riff
 {
@@ -16,8 +13,6 @@ public:
     unsigned int length;
     rptr<const char> data;
 };
-
-}
 
 }
 

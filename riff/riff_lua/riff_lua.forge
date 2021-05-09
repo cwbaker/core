@@ -1,8 +1,10 @@
 
-for _, toolset in toolsets('cc.*') do
-    toolset:StaticLibrary '${lib}/riff_lua_${platform}_${architecture}' {
-        toolset:Cxx '${obj}/%1' {
-            'LuaRiff.cpp';
-        };
-    };
+for _, cc in toolsets('cc.*') do
+	if cc.settings.lua_enabled then
+	    cc:StaticLibrary '${lib}/riff_lua_${platform}_${architecture}' {
+	        cc:Cxx '${obj}/%1' {
+	            'LuaRiff.cpp';
+	        };
+	    };
+	end
 end

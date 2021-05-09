@@ -4,15 +4,14 @@
 //
 
 #include "LuaFs.hpp"
-#include <sweet/fs/BasicPath.ipp>
-#include <sweet/fs/DirectoryStack.hpp>
-#include <sweet/fs/FileSystem.hpp>
-#include <sweet/fs/fs.hpp>
+#include <fs/BasicPath.ipp>
+#include <fs/DirectoryStack.hpp>
+#include <fs/FileSystem.hpp>
+#include <fs/fs.hpp>
 #include <lua.hpp>
 
 using std::string;
-using namespace sweet;
-using namespace sweet::fs;
+using namespace fs;
 
 /**
 // Constructor.

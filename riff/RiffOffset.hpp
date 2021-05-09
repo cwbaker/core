@@ -1,10 +1,7 @@
-#ifndef SWEET_RIFF_RIFFOFFSET_HPP_INCLUDED
-#define SWEET_RIFF_RIFFOFFSET_HPP_INCLUDED
+#ifndef RIFF_RIFFOFFSET_HPP_INCLUDED
+#define RIFF_RIFFOFFSET_HPP_INCLUDED
 
 #include <stddef.h>
-
-namespace sweet
-{
 
 namespace riff
 {
@@ -36,8 +33,6 @@ public:
     void reset( const RiffWriter* writer, size_t offset );
     void reset( const RiffWriter* writer, const void* address );
 };
-
-}
 
 }
 
