@@ -31,14 +31,16 @@ Riff::Riff( const char* filename )
     {
         RiffHeader header;
         memset( &header, 0, sizeof(header) );
-        fread( &header, sizeof(header), 1, file );
+        size_t read = fread( &header, sizeof(header), 1, file );
+        (void) read;
         
         if ( strcmp(header.tag, "RESOURCE") == 0 )
         {
             data_ = reinterpret_cast<unsigned char*>( malloc(header.size) );
             if ( data_ )
             {
-                fread( data_, sizeof(unsigned char), header.size, file );
+                size_t read = fread( data_, sizeof(unsigned char), header.size, file );
+                (void) read;
                 size_ = header.size;
             }
         }
