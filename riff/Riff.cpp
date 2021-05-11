@@ -3,6 +3,9 @@
 // Copyright (c) Charles Baker. All rights reserved.
 //
 
+// Silence warning C4996: 'fopen': This function or variable may be unsafe.
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "Riff.hpp"
 #include "RiffIterator.hpp"
 #include "RiffHeader.hpp"
