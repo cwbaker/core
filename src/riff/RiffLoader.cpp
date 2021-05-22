@@ -109,6 +109,16 @@ void RiffLoader::unload_riff( const char* identifier )
     delete riff;
 }
 
+void RiffLoader::unload_all()
+{
+    for ( map<string, const Riff*>::iterator i = riffs_.begin(); i != riffs_.end(); ++i )
+    {
+        const Riff* riff = i->second;
+        delete riff;
+    }
+    riffs_.clear();
+}
+
 void RiffLoader::add_riff( const char* filename, const Riff* riff )
 {
     SWEET_ASSERT( filename );

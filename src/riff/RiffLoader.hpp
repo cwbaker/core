@@ -32,6 +32,7 @@ public:
     const Riff* load_riff_from_writer( const char* identifier, RiffWriter* writer );
     const Riff* load_riff_from_memory( const char* identifier, unsigned char* data, size_t size );
     void unload_riff( const char* identifier );
+    void unload_all();
 
 private:
     void add_riff( const char* filename, const Riff* riff );
