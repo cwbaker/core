@@ -31,7 +31,7 @@ public:
     bool empty() const;
 
     void swap( rarray& rarray );
-    void reset( unsigned int size, void* array = 0 );
+    void reset( unsigned int size = 0, void* array = 0 );
     Type* begin();
     Type* end();
 };
