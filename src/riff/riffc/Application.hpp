@@ -1,11 +1,11 @@
 #ifndef APPLICATION_HPP_INCLUDED
 #define APPLICATION_HPP_INCLUDED
 
-#include <string>
-#include <lua/LuaObject.hpp>
-#include <lua/Lua.hpp>
-#include <io/IoPolicy.hpp>
+#include <sweet/lua/LuaObject.hpp>
+#include <sweet/lua/Lua.hpp>
+#include <sweet/io/IoPolicy.hpp>
 #include <error/ErrorPolicy.hpp>
+#include <string>
 
 namespace fs
 {
@@ -26,16 +26,16 @@ class Application
 {
     int result_;
     error::ErrorPolicy error_policy_;
-    io::IoPolicy io_policy_;
+    sweet::io::IoPolicy io_policy_;
     fs::DirectoryStack* directory_stack_;
     fs::FileSystem* file_system_;
-    lua::Lua lua_;
+    sweet::lua::Lua lua_;
     fs::LuaFs* lua_fs_;
-    lua::LuaObject* riff_;
-    lua::LuaObject file_builder_metatable_;
-    lua::LuaObject file_builder_prototype_;
-    lua::LuaObject riff_writer_metatable_;
-    lua::LuaObject riff_writer_prototype_;
+    sweet::lua::LuaObject* riff_;
+    sweet::lua::LuaObject file_builder_metatable_;
+    sweet::lua::LuaObject file_builder_prototype_;
+    sweet::lua::LuaObject riff_writer_metatable_;
+    sweet::lua::LuaObject riff_writer_prototype_;
 
 public:
     Application( int argc, char** argv );

@@ -3,11 +3,11 @@
 // Copyright (c) Charles Baker. All rights reserved.
 
 #include "Application.hpp"
+#include <sweet/lua/Lua.hpp>
+#include <sweet/lua/LuaObject.hpp>
+#include <sweet/lua/LuaDeleter.hpp>
 #include <riff/FileBuilder.hpp>
 #include <riff/RiffWriter.hpp>
-#include <lua/Lua.hpp>
-#include <lua/LuaObject.hpp>
-#include <lua/LuaDeleter.hpp>
 #include <cmdline/Parser.hpp>
 #include <fs/fs_lua/LuaFs.hpp>
 #include <fs/FileSystem.hpp>
@@ -19,6 +19,7 @@
 using std::string;
 using std::vector;
 using std::unique_ptr;
+using namespace sweet;
 using namespace sweet::lua;
 using namespace riff;
 
