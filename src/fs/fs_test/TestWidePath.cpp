@@ -4,7 +4,7 @@
 //
 
 #include <UnitTest++/UnitTest++.h>
-#include <sweet/fs/BasicPath.ipp>
+#include <fs/BasicPath.ipp>
 
 using namespace sweet::fs;
 
