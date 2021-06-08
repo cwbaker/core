@@ -211,7 +211,7 @@ FileBuilder* Application::create_file_builder( riff::RiffWriter* riff_writer )
     unique_ptr<FileBuilder> file_builder;
     if ( riff_writer )
     {
-        file_builder.reset( new FileBuilder(*riff_writer, &io_policy_, &error_policy_) );
+        file_builder.reset( new FileBuilder(*riff_writer, &error_policy_) );
         lua_.create( file_builder.get() );
         lua_.members( file_builder.get() )
             .metatable( file_builder_metatable_ )
