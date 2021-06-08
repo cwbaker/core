@@ -5,8 +5,8 @@ function riff.configure( toolset, riff_settings )
     return {
         riffc = riff_settings.riffc or '${bin}/riffc';
         luac = riff_settings.luac or '${bin}/luaxxc';
-        lua_path = riff_settings.lua_path or root( 'src/sweet/riff/?.lua' );
-        build_riff = riff_settings.build_riff or root( 'src/sweet/riff/riff/build_riff.lua' );
+        lua_path = riff_settings.lua_path or root( 'src/core/src/riff/?.lua' );
+        build_riff = riff_settings.build_riff or root( 'src/core/src/riff/riffc/riff/build_riff.lua' );
     };        
 end
 

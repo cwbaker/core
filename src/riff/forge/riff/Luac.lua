@@ -26,13 +26,13 @@ function Luac.build( toolset, target )
     local arguments = {
         'riffc';
         ('--root "%s"'):format( root );
-        ('-e "%s"'):format( settings.riff.build_riff or root('src/sweet/riff/riff/build_riff.lua') );
+        ('-e "%s"'):format( settings.riff.build_riff or root('src/core/src/riff/riffc/riff/build_riff.lua') );
         ('-o "%s"'):format( filename );
         ('identifier=%s'):format( identifier );
         ('"%s.luac"'):format( filename );
     };
     local environment = {
-        LUA_PATH = settings.riff.lua_path or root( 'src/sweet/riff/?.lua' );
+        LUA_PATH = settings.riff.lua_path or root( 'src/core/src/riff/?.lua' );
     };
     system( riffc, arguments, environment, toolset:dependencies_filter(target) );
 end

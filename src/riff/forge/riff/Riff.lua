@@ -12,7 +12,7 @@ function Riff.build( toolset, target )
     local command_line = {
         'riffc',
         ('--root "%s"'):format( target.root or settings.root or root() );
-        ('-e "%s"'):format( settings.riff.build_riff or root('src/sweet/riff/riff/build_riff.lua') );
+        ('-e "%s"'):format( settings.riff.build_riff or root('src/core/src/riff/riffc/riff/build_riff.lua') );
         ('-o "%s"'):format( filename ),
         ('tag=%s'):format( target.tag or 'FILE' )
     };
@@ -25,7 +25,7 @@ function Riff.build( toolset, target )
     end
     
     local environment = {
-        LUA_PATH = settings.riff.lua_path or root( 'src/sweet/riff/?.lua' );
+        LUA_PATH = settings.riff.lua_path or root( 'src/core/src/riff/?.lua' );
     };
 
     printf( leaf(filename) );
