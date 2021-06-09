@@ -6,7 +6,7 @@
 #include <UnitTest++/UnitTest++.h>
 #include <fs/BasicPath.ipp>
 
-using namespace sweet::fs;
+using namespace fs;
 
 SUITE( TestWidePath )
 {
