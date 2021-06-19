@@ -5,7 +5,6 @@ for _, cc in toolsets('cc.*') do
     cc:StaticLibrary '${lib}/cmdline_${platform}_${architecture}' {
         cc:Cxx '${obj}/%1' {
             'AddOption.cpp',
-            'Error.cpp',
             'Option.cpp',
             'Parser.cpp',
             'Splitter.cpp'
