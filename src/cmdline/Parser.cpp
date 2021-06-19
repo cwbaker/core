@@ -47,9 +47,9 @@ void Parser::parse( int argc, const char** argv ) const
     {
         if ( is_short_option(argv[argi]) )
         {
-            bool          option_parsed = false;
-            const char*   argument      = argv[argi] + 1;
-            const Option* option        = find_option_by_short_name( std::string(argument, argument + 1) );
+            bool option_parsed = false;
+            const char* argument = argv[argi] + 1;
+            const Option* option = find_option_by_short_name( std::string(argument, argument + 1) );
 
             while ( option != 0 && option->get_type() == OPTION_BOOL )
             {
@@ -78,7 +78,7 @@ void Parser::parse( int argc, const char** argv ) const
         }
         else if ( is_long_option(argv[argi]) )
         {
-            const char* name     = argv[argi] + 2;
+            const char* name = argv[argi] + 2;
             const char* name_end = find_end_of_name( name );
             const char* argument = find_argument( name_end );
 
