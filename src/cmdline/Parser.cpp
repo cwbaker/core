@@ -4,7 +4,7 @@
 //
 
 #include "Parser.hpp"
-#include "Error.hpp"
+#include <error/ErrorPolicy.hpp>
 #include <assert/assert.hpp>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,9 +22,9 @@ Parser::Parser()
 {
 }
 
-void Parser::parse( int argc, char** argv ) const
+bool Parser::parse( int argc, char** argv, error::ErrorPolicy* error_policy ) const
 {
-    parse( argc, const_cast<const char**>(argv) );
+    return parse( argc, const_cast<const char**>(argv), error_policy );
 }
 
 /**
@@ -37,11 +37,16 @@ void Parser::parse( int argc, char** argv ) const
 // @param argv
 //  The command line arguments.
 //
+// @param error_policy
+//  The ErrorPolicy to report errors to (assumed not null).
+//
 // @return
 //  True if parsing the command line succeeded otherwise false.
 */
-void Parser::parse( int argc, const char** argv ) const
+bool Parser::parse( int argc, const char** argv, error::ErrorPolicy* error_policy ) const
 {
+    SWEET_ASSERT( error_policy );
+
     int argi = 1;
     while ( argi < argc )
     {
@@ -55,7 +60,7 @@ void Parser::parse( int argc, const char** argv ) const
             {
                 option_parsed = true;
                 ++argument;
-                parse_option( option, argument, argv[argi + 1] );
+                parse_option( option, argument, argv[argi + 1], error_policy );
                 option = find_option_by_short_name( std::string(argument, argument + 1) );
             }
 
@@ -63,17 +68,19 @@ void Parser::parse( int argc, const char** argv ) const
             {
                 if ( option_parsed )
                 {
-                    SWEET_ERROR( InvalidOptionError("Option '-%c' is invalid as part of a group because it requires an argument", *argument) );
+                    error_policy->error( true, "option '-%c' with an argument is invalid in a group", *argument );
+                    return false;
                 }
 
                 option_parsed = true;
                 ++argument;
-                argi += parse_option( option, argument, argv[argi + 1] );
+                argi += parse_option( option, argument, argv[argi + 1], error_policy );
             }
 
             if ( !option_parsed )
             {
-                SWEET_ERROR( InvalidOptionError("Unrecognized option '-%c'", *argument) );
+                error_policy->error( true, "unrecognized option '-%c'", *argument );
+                return false;
             }
         }
         else if ( is_long_option(argv[argi]) )
@@ -85,11 +92,12 @@ void Parser::parse( int argc, const char** argv ) const
             const Option* option = find_option_by_name( std::string(name, name_end) );
             if ( option != 0 )
             {
-                argi += parse_option( option, argument, argv[argi + 1] );
+                argi += parse_option( option, argument, argv[argi + 1], error_policy );
             }
             else
             {
-                SWEET_ERROR( InvalidOptionError("Unrecognized option '--%s'", name) );
+                error_policy->error( true, "unrecognized option '--%s'", name );
+                return false;
             }
         }
         else
@@ -102,6 +110,7 @@ void Parser::parse( int argc, const char** argv ) const
 
         ++argi;
     }
+    return true;
 }
 
 /**
@@ -204,7 +213,6 @@ const Option* Parser::find_option_by_name( const std::string& name ) const
     {
         ++option;
     }
-
     return option != options_.end() ? &(*option) : 0;
 }
 
@@ -224,7 +232,6 @@ const Option* Parser::find_option_by_short_name( const std::string& short_name )
     {
         ++option;
     }
-
     return option != options_.end() ? &(*option) : 0;
 }
 
@@ -243,12 +250,10 @@ const Option* Parser::find_option_by_short_name( const std::string& short_name )
 const char* Parser::find_end_of_name( const char* name ) const
 {
     SWEET_ASSERT( name );
-
     while ( *name != 0 && *name != '=' )
     {
         ++name;
     }
-
     return name;
 }
 
@@ -268,12 +273,10 @@ const char* Parser::find_end_of_name( const char* name ) const
 const char* Parser::find_argument( const char* name_end ) const
 {
     SWEET_ASSERT( name_end );
-
     if ( *name_end != '=' )
     {
         ++name_end;
     }
-
     return name_end;
 }
 
@@ -299,20 +302,20 @@ const char* Parser::find_argument( const char* name_end ) const
 //  argument that was contained within the argument following the argument 
 //  that the Option was in).
 */
-int Parser::parse_option( const Option* option, const char* argument, const char* next_argument ) const
+int Parser::parse_option( const Option* option, const char* argument, const char* next_argument, error::ErrorPolicy* error_policy ) const
 {
     SWEET_ASSERT( option );
     SWEET_ASSERT( option->get_address() );
     SWEET_ASSERT( argument );
+    SWEET_ASSERT( error_policy );
 
-//
-// If the Option is not a boolean option then it must have an argument that
-// follows it either contained in the same command line argument as the 
-// option was in (e.g. -j3 or --jobs=3) or in the command line argument that
-// follows it (e.g. -j 3 or --jobs 3).  So skip the optional leading '=' and
-// skip to the command line argument that follows if the command line argument
-// that contains the option doesn't also contain an argument.
-//
+    // If the Option is not a boolean option then it must have an argument
+    // that follows it either contained in the same command line argument as
+    // the option was in (e.g. -j3 or --jobs=3) or in the command line
+    // argument that follows it (e.g. -j 3 or --jobs 3).  So skip the optional
+    // leading '=' and skip to the command line argument that follows if the
+    // command line argument that contains the option doesn't also contain an
+    // argument.
     if ( option->get_type() != OPTION_BOOL )
     {
         if ( *argument == '=' )
@@ -327,14 +330,13 @@ int Parser::parse_option( const Option* option, const char* argument, const char
 
         if ( argument == 0 )
         {
-            SWEET_ERROR( InvalidArgumentError("Option '--%s' requires an argument", option->get_name().c_str()) );
+            error_policy->error( true, "missing argument for option '--%s'", option->get_name().c_str() );
+            return false;
         }
     }
 
-//
-// Extract the argument value for the Option - true for boolean options or 
-// the value of the argument for other option types.
-//
+    // Extract the argument value for the Option - true for boolean options or
+    // the value of the argument for other option types.
     switch ( option->get_type() )
     {
         case OPTION_BOOL:

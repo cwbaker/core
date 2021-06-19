@@ -7,6 +7,13 @@
 #include <vector>
 #include <stdio.h>
 
+namespace error
+{
+
+class ErrorPolicy;
+
+}
+
 namespace cmdline
 {
 
@@ -21,8 +28,8 @@ class Parser
 public:
     Parser();
     AddOption add_options();
-    void parse( int argc, char** argv ) const;
-    void parse( int argc, const char** argv ) const;
+    bool parse( int argc, char** argv, error::ErrorPolicy* error_policy ) const;
+    bool parse( int argc, const char** argv, error::ErrorPolicy* error_policy ) const;
     void print( FILE* stream, int width = 12 ) const;
 
 private:
@@ -32,7 +39,7 @@ private:
     const Option* find_option_by_short_name( const std::string& short_name ) const;
     const char* find_end_of_name( const char* name ) const;
     const char* find_argument( const char* name_end ) const;
-    int parse_option( const Option* option, const char* argument, const char* next_argument ) const;
+    int parse_option( const Option* option, const char* argument, const char* next_argument, error::ErrorPolicy* error_policy ) const;
 };
 
 }

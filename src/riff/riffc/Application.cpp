@@ -67,7 +67,7 @@ Application::Application( int argc, char **argv )
         ( "output", "o", "Set the output filename", &output_filename )
         ( &assignments_and_filenames )
     ;
-    command_line_parser.parse( argc, argv );
+    command_line_parser.parse( argc, argv, &error_policy_ );
 
     if ( version || help || (require.empty() && execute.empty()) || output_filename.empty() )
     {
