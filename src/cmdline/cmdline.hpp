@@ -1,5 +1,5 @@
-#ifndef SWEET_CMDLINE_HPP_INCLUDED
-#define SWEET_CMDLINE_HPP_INCLUDED
+#ifndef CMDLINE_HPP_INCLUDED
+#define CMDLINE_HPP_INCLUDED
 
 /**
  Command line parsing library.
@@ -49,10 +49,5 @@ if ( help )
 namespace cmdline
 {
 }
-
-#include "Error.hpp"
-#include "Option.hpp"
-#include "AddOption.hpp"
-#include "Parser.hpp"
 
 #endif
