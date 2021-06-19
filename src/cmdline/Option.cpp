@@ -29,11 +29,11 @@ using namespace cmdline;
 //  \e address.
 */
 Option::Option( const std::string& name, const std::string& short_name, const std::string& description, void* address, OptionType type )
-: name_( name ),
-  short_name_( short_name ),
-  description_( description ),
-  address_( address ),
-  type_( type )
+: name_( name )
+, short_name_( short_name )
+, description_( description )
+, address_( address )
+, type_( type )
 {
     SWEET_ASSERT( !name.empty() || !short_name.empty() );
     SWEET_ASSERT( address_ );

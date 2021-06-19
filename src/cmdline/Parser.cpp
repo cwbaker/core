@@ -17,8 +17,8 @@ using namespace cmdline;
 // Constructor.
 */
 Parser::Parser()
-: options_(),
-  operands_( 0 )
+: options_()
+, operands_( 0 )
 {
 }
 

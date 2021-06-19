@@ -20,8 +20,8 @@ using namespace cmdline;
 //  in (assumed to be not null).
 */
 AddOption::AddOption( std::vector<Option>* options, std::vector<std::string>** operands )
-: options_( options ),
-  operands_( operands )
+: options_( options )
+, operands_( operands )
 {
     SWEET_ASSERT( options_ );
     SWEET_ASSERT( operands_ );

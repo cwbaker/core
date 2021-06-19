@@ -16,8 +16,8 @@ using namespace cmdline;
 //  null).
 */
 Splitter::Splitter( const char* command_line )
-: command_line_( command_line ),
-  arguments_()
+: command_line_( command_line )
+, arguments_()
 {
     SWEET_ASSERT( command_line );
 
