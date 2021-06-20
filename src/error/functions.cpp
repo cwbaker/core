@@ -4,7 +4,6 @@
 //
 
 #include "stdafx.hpp"
-#include "Error.hpp"
 #include "ErrorPolicy.hpp"
 #include "functions.hpp"
 #include <assert/assert.hpp>
@@ -46,31 +45,6 @@ void set_error_policy( ErrorPolicy* error_policy )
 ErrorPolicy* get_error_policy()
 {
     return sweet_error_policy;
-}
-
-/**
-// Handle an error.
-//
-// Passes the error on to the global ErrorPolicy if one has been set otherwise
-// prints the error description to stderr and calls ::exit() passing 
-// EXIT_FAILURE as the return code to pass back to the operating system.
-//
-// @param error
-//  The Error object that describes the error that has occured.
-*/
-void error( const Error& error )
-{
-    ErrorPolicy* error_policy = error::get_error_policy();
-    if ( error_policy )
-    {
-        error_policy->error( true, error.what() );
-    }
-    else
-    {
-        fputs( error.what(), stderr );
-        fputs( ".\n", stderr );
-        exit( EXIT_FAILURE );
-    }
 }
 
 /**

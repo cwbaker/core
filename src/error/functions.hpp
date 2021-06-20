@@ -11,12 +11,10 @@ class exception;
 namespace error
 {
 
-class Error;
 class ErrorPolicy;
 
 void set_error_policy( ErrorPolicy* error_policy );
 ErrorPolicy* get_error_policy();
-void error( const Error& error );
 void error( const std::exception& exception );
 const char* format( int error, char* buffer, unsigned int length );
 
