@@ -123,14 +123,19 @@ const char* format( int error, char* buffer, unsigned int length )
         buffer[actual_length] = 0;
         --actual_length;
     }
+    return buffer;
 #elif defined(BUILD_OS_MACOS)
     strerror_r( error, buffer, length );
+    return buffer;
+#elif defined(BUILD_OS_LINUX)
+    return strerror_r( error, buffer, length );
 #else
     (void) error;
     (void) buffer;
     (void) length;
-#endif
+    memset( buffer, 0, length );
     return buffer;
+#endif
 }
 
 }
