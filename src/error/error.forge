@@ -10,7 +10,6 @@ for _, toolset in toolsets('cc.*') do
                 -- `man strerror_r` for more details.
                 'POSIX_C_SOURCE=200112L'
             };
-            'Error.cpp';
             'ErrorPolicy.cpp';
             'NullErrorPolicy.cpp';
             'functions.cpp';
