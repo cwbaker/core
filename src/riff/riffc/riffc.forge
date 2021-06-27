@@ -1,5 +1,5 @@
 
-for _, cc in toolsets( 'cc_macos_.*', 'cc_windows_.*', '^cc_linux.*' ) do
+for _, cc in toolsets( '^cc_linux.*', '^cc_macos.*', '^cc_windows.*' ) do
     if cc.settings.lua_enabled then
         local libraries = switch {
             cc.settings.platform;

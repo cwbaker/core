@@ -1,5 +1,5 @@
 
-for _, toolset in toolsets( 'cc_macos_.*', 'cc_windows_.*' ) do
+for _, toolset in toolsets( '^cc_linux.*', '^cc_macos.*', '^cc_windows.*' ) do
 	toolset:all {
 	    toolset:Executable '${bin}/error_test' {
 	        '${lib}/error_${platform}_${architecture}';

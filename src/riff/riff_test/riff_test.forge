@@ -1,5 +1,5 @@
 
-for _, cc in toolsets( '^cc_.*' ) do
+for _, cc in toolsets( '^cc.*' ) do
     if cc.settings.unit_tests_enabled then
         cc:StaticLibrary '${lib}/riff_test_${platform}_${architecture}' {
             whole_archive = true;

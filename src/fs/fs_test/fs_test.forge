@@ -1,5 +1,5 @@
 
-for _, cc in toolsets( '^cc_linux_.*', '^cc_macos_.*', '^cc_windows_.*' ) do
+for _, cc in toolsets( '^cc_linux.*', '^cc_macos.*', '^cc_windows.*' ) do
 	if cc.settings.unit_tests_enabled then
 	    cc:StaticLibrary '${lib}/fs_test_${platform}_${architecture}' {
 	        whole_archive = true;
