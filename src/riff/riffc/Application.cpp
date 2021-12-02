@@ -19,8 +19,7 @@
 using std::string;
 using std::vector;
 using std::unique_ptr;
-using namespace sweet;
-using namespace sweet::lua;
+using namespace lua;
 using namespace riff;
 
 SWEET_LUA_TYPE_CONVERSION( FileBuilder, LuaByReference, "riff.FileBuilder" );
